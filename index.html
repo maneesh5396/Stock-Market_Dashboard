@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet"/>
+    <title>Stock-Market-Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-arrow-up-long fa-beat-fade" style="color: #37ff00;"></i> Stock Market Dashboard <i class="fa-solid fa-arrow-down-long fa-beat-fade" style="color: #ff0000;"></i></h1>
+    </header>
+    <section>
+        <div class="search-section">
+            <div class="searchWrapper">
+                <input id="searchInput" type="search" placeholder="Search for Symbol">
+                <div id="searchResults" class="searchResults">
+                    <ul id="searchList">
+
+                    </ul>
+                </div>
+            </div>
+            
+            <button id="searchButton" type="submit"><i class="fa-brands fa-searchengin fa-xl"></i></button>
+
+        </div>  
+            
+    </section>
+    <section>
+        <div class="options">
+            <button type="button">INTRADAY
+                <input type="radio" id="intraday" name="trade_type" value="TIME_SERIES_INTRADAY">
+            </button>            
+            <button type="button">DAILY
+                <input type="radio" id="daily" name="trade_type" value="TIME_SERIES_DAILY">
+            </button>
+            <button type="button">WEEKLY
+                <input type="radio" id="weekly" name="trade_type" value="TIME_SERIES_WEEKLY">
+            </button>
+            <button type="button">MONTHLY
+                <input type="radio" id="monthly" name="trade_type" value="TIME_SERIES_MONTHLY">
+            </button>
+        </div>
+    </section>
+    <section class="watchlist">
+        <div>
+            <span>YOUR WATCHLIST</span>
+            <div id="watchlistResult"></div>
+            <div class="watchlistWrapper">
+                <div>AMZN</div>
+                <div>Price</div>
+                <div>Intraday</div>
+                <button><i class="fa-solid fa-delete-left fa-2xl" style="color: #fa0000;"></i></button>
+            </div>
+            
+            
+        </div>
+    </section>
+    <script src="App.js"></script>
+</body>
+</html>

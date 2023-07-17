@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&family=Poppins:ital,wght@0,300;0,500;1,100&display=swap');
+
+/* to make mobile responsive will use 650 max-width */
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* background-color: rgb(151, 111, 189); */
+}
+header{
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-shadow: 3px 1.5px rgba(235, 232, 232, 0.3);
+    color: rgb(151, 111, 189) ;
+    letter-spacing: 1px;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header>h1{
+    font-size: 2.5rem;
+}
+.search-section{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px;
+}
+.searchResults{
+    min-width: 300px;
+    background-color: rgb(236, 239, 239);
+    border-radius: 10px;
+}
+.searchResults li{
+    list-style: none;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(182, 184, 184);
+    color: rgb(87, 90, 90);
+    cursor: pointer;
+}
+.searchWrapper{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+#searchInput{
+    min-width: 300px;
+    display: inherit;
+    padding: 10px;
+    border-radius: 40px;
+}
+#searchButton{
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+}
+
+#searchButton:hover{
+    transform: scale(1.05);
+}
+.options{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0px;
+    font-family: 'Poppins';
+}
+.options button{
+    width: 20%;
+    padding: 10px;
+    border-radius: 40px;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    border: none;
+}
+.options button:hover{
+    background-color: rgb(18, 13, 13);
+    color: white;
+    transform: scale(1.05);
+}
+.watchlist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.watchlist span{
+    text-align: center;
+    font-size: 2rem;
+    padding: 0px 20px;
+    border-radius: 40px;
+    font-family: 'Poppins';
+    background-color: rgb(236, 239, 239);
+}
+.watchlistWrapper {
+    width:320px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+    font-family: 'Poppins';
+    background-color:rgb(236, 239, 239) ;
+
+}
+
+.watchlistWrapper button{
+    border: none;
+    cursor: pointer;
+
+}
+
+@media screen and (max-width:650px) {
+    body{
+        /* background-color: rgb(18, 13, 13); */
+    }
+    header{
+        color: rgb(0, 0, 0);
+        text-shadow: 2px 1px rgba(0,0,0, 0.3);
+        background-color: rgb(151, 111, 189);
+    }
+    header>h1{
+        font-size: 1.5rem;
+    }
+    .options{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+    }
+    .options button{
+        width: 40%;
+    }
+    .options button:hover{
+        background-color: rgb(151, 111, 189);
+        color: white;
+        transform: scale(1.05);
+    }
+    #searchInput{
+        width: 40%;
+    }
+}
