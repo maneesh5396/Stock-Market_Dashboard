@@ -21,11 +21,21 @@ searchBtn.addEventListener('click', ()=>{
       list += `<li onclick="getCompanyData('${element['1. symbol']}')">${element['2. name']}</li>`;
     });
     searchList.innerHTML = list;
-    console.log(data);
+    // console.log(data);
   }
   // console.log(tradeTypeValue);
   searchTrades(url);
 })
+
+searchInput.addEventListener("keyup", searchListRender)
+searchInput.addEventListener("click", searchListRender);
+function searchListRender(){
+  const searchList = document.getElementById('searchList'); 
+  if(searchInput.value == ""){
+    searchList.innerHTML = "";
+  }
+}
+
 async function getCompanyData(symbol){
   const tradeType = document.getElementsByName('trade_type');
   let tradeTypeValue = "";

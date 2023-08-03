@@ -113,6 +113,9 @@ header>h1{
     background-color:rgb(236, 239, 239) ;
 
 }
+#watchlistCard{
+    
+}
 
 .watchlistWrapper button{
     border: none;
@@ -128,6 +131,7 @@ table{
 }
 tbody{
     background-color: aliceblue;
+    /* padding: 5px; */
 }
 
 
