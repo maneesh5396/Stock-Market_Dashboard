@@ -105,7 +105,7 @@ header>h1{
 }
 .watchlistWrapper {
     /* width:350px;
-    gap: auto; */
+    gap: auto;  */
     display: flex;
     margin-top: 10px;
     justify-content: space-around;
@@ -129,6 +129,7 @@ table{
 tbody{
     background-color: aliceblue;
 }
+
 
 @media screen and (max-width:650px) {
     body{

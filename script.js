@@ -34,19 +34,31 @@ async function getCompanyData(symbol){
       tradeTypeValue = tradeType[i].value;
     }       
   }
+  console.log(tradeTypeValue);
   const url = `https://www.alphavantage.co/query?function=${tradeTypeValue}&symbol=${symbol}&interval=5min&apikey=PJF7VZUNDSI5OG98`
   const response = await fetch(url);
   const data = await response.json();
   console.log(data);
   let dataToStore = [];
   // console.log();
+  let datakey = 'Weekly Time Series'
+  switch(tradeTypeValue){
+    case "TIME_SERIES_DAILY":
+      datakey = 'Time Series (Daily)'
+      break;
+    case "TIME_SERIES_MONTHLY":
+      datakey = 'Monthly Time Series'
+      break;
+    case "TIME_SERIES_INTRADAY":
+      datakey = 'Time Series (5min)'
+      break;
+  }
   const objToPush = {
     name: symbol,
     tradeType: tradeTypeValue,
-    price: Object.values(data['Weekly Time Series'])[0]['2. high'],
-    data: data['Weekly Time Series'],
+    price: Object.values(data[datakey])[0]['2. high'],
+    data: data[datakey],
   };
-
   const wishlist = JSON.parse(localStorage.getItem('wishlist'))?.store;
   const filterCheck = wishlist?.filter((d)=> d.name == symbol);
   if(wishlist?.length > 0 && filterCheck.length == 0) {
@@ -101,7 +113,7 @@ function showData(symbol){
   console.log(wishlistCardData);
   let dataTable = document.getElementById("tableData");
   console.log(dataTable);
-  let dataTableStr = `<table id="tableData">
+  let dataTableStr = `
   <thead>
       <tr>
           <td>Date</td>
@@ -114,19 +126,21 @@ function showData(symbol){
   </thead>
   <tbody>`;
   const tableData = wishlistCardData[0].data;
-  tableData?.map((data)=>{
-    dataTable +=`
+  const keyArr = Object.keys(tableData);
+  keyArr?.map((d, i)=>{
+    (i<10) && (dataTableStr +=`
         <tr>
-            <td>20-07-23</td>
-            <td></td>
-            <td>234</td>
-            <td>67</td>
-            <td>125</td>
-            <td>123456</td>
-        </tr>`
+            <td>${d}</td>
+            <td>${tableData[d]['1. open']}</td>
+            <td>${tableData[d]['2. high']}</td>
+            <td>${tableData[d]['3. low']}</td>
+            <td>${tableData[d]['4. close']}</td>
+            <td>${tableData[d]['5. volume']}</td>
+        </tr>`)
   })
-  dataTable += `</tbody>
-  </table>`;
+  dataTableStr += `</tbody>`;
+  dataTable.innerHTML = dataTableStr;
+  
 }
 
 renderWishList();
